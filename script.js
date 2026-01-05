@@ -5,16 +5,15 @@ const noBtn = document.querySelector(".no-btn");
 /* Confetti effect */
 function confetti() {
   for (let i = 0; i < 150; i++) {
-    const confetti = document.createElement("div");
-    confetti.classList.add("confetti");
+    const c = document.createElement("div");
+    c.classList.add("confetti");
 
-    confetti.style.left = Math.random() * window.innerWidth + "px";
-    confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    c.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
-    document.body.appendChild(confetti);
-
-    setTimeout(() => confetti.remove(), 5000);
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
   }
 }
 
@@ -22,7 +21,7 @@ function confetti() {
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "wow thnx i love free will";
   confetti();
-  if (noBtn) noBtn.remove(); // No disappears after Yes click
+  if (noBtn) noBtn.remove(); // Remove No button only when Yes is clicked
 });
 
 /* NO button: moves away on hover forever */
